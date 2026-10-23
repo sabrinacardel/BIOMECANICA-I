@@ -16,9 +16,9 @@ def _(mo):
     limitações da medida.
 
     > Resultado importante: o vídeo não contém uma régua, marcador de
-    > calibração ou outra dimensão física conhecida. Por isso, a análise
+    > calibração ou outra dimensão física. Por isso, a análise
     > primária é apresentada em pixels; a versão em metros abaixo é uma
-    > calibração dinâmica explícita, não uma escala medida no cenário.
+    > calibração dinâmica, não uma escala medida no cenário.
     """)
     return
 
@@ -38,7 +38,7 @@ def _():
 
 @app.cell(hide_code=True)
 def _():
-    # Dados brutos incorporados: este arquivo .py pode ser enviado sozinho.
+    # Dados brutos incorporados:
     RAW_TRAJECTORY_CSV = r"""frame,x_left_px,y_left_px,score_left,x_right_px,y_right_px,score_right,x_hip_px,y_hip_px,person_score
 0,262.97845458984375,576.6099243164062,1.0,202.73727416992188,578.0465087890625,1.0,232.8578643798828,577.3282470703125,0.9998155236244202
 1,263.59173583984375,576.5865478515625,1.0,203.250244140625,580.8976440429688,1.0,233.42098999023438,578.7420654296875,0.9998169541358948
@@ -129,16 +129,15 @@ def _(mo):
     mo.md(r"""
     ## 1. Coleta e qualidade do vídeo
 
-    Foram fornecidos dois vídeos frontais do salto. O arquivo normal tem
-    80 quadros, com taxa nominal de 30 Hz, e foi escolhido para a análise
+    Foram fornecidos dois vídeos frontais do salto (um normal e outro em câmera lenta). 
+    
+    O arquivo normal tem 80 quadros, com taxa nominal de 30 Hz, e foi escolhido para a análise
     temporal. O arquivo em câmera lenta foi usado apenas para inspeção
-    visual: sua duração codificada é maior e não foi adotado para derivar
-    velocidade/aceleração sem uma confirmação independente do fator de
-    desaceleração.
+    visual: sua duração é maior e não foi adotado para derivar
+    velocidade/aceleração.
 
     **Avaliação da coleta atual.** A câmera permaneceu fixa, o corpo ficou
-    inteiro no campo visual e o contraste com o fundo permite localizar os
-    quadris. As limitações são ausência de marcador físico contrastante,
+    inteiro no campo visual. As limitações são ausência de marcador físico contrastante,
     ausência de escala conhecida e perspectiva por uma câmera posicionada
     fora do plano estritamente perpendicular ao movimento.
 
@@ -146,8 +145,7 @@ def _(mo):
     sagital/frontal escolhido, lente aproximadamente na altura do quadril,
     120 Hz ou mais, boa iluminação, marcador circular de alto contraste
     sobre a espinha ilíaca e uma régua/haste de dimensão conhecida no mesmo
-    plano do marcador antes da tentativa. Registrar uma tentativa por vez e
-    manter todo o corpo no enquadramento.
+    plano do marcador antes da tentativa.
     """)
     return
 
